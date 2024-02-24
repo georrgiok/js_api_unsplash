@@ -1,17 +1,11 @@
-const articles = [];
-const image = document.querySelector('.photo');
-const photographer = document.querySelector('.photographer');
-const counter = document.querySelector('.counter');
-const likeBtn = document.querySelector('.like');
-const backBtn = document.querySelector('.back');
-const nextBtn = document.querySelector('.next');
+const articles = [], image = document.querySelector('.photo'), photographer = document.querySelector('.photographer'),counter = document.querySelector('.counter'),likeBtn = document.querySelector('.like'),backBtn = document.querySelector('.back'), nextBtn = document.querySelector('.next');
 let countPhoto = 0;
-
+let api_key = "m6vBGQEF_u8apsBICtnFU56j-Z_ADx7AQYZol9NxeYo";
 async function getFetch() {
-    const url = 'https://api.unsplash.com/photos/random/?client_id=C08d3_zNiS7bsdvGRSfdqEESDiJT5rwIIg9EqIZaz6A';
+
+    const url = 'https://api.unsplash.com/photos/random/?client_id='+api_key;
     const response = await fetch(url);
-    if (response.ok) { // если HTTP-статус в диапазоне 200-299
-        // получаем тело ответа
+    if (response.ok) { 
         const json = await response.json();
         const article = {};
         article.photo = json.links.download;
